@@ -72,70 +72,200 @@ const applyToJob = async (req, res) => {
 
 // STARTUP ISPRAKJA DIREKTNA PONUDA DO MENTOR
 // POST /api/applications/offer
+//
+// Poddrzuva:
+// 1. Postoecki Job preku jobId
+// 2. Nov Job preku newJob
 const sendJobOffer = async (req, res) => {
-  try {
-    const {
-      mentorId,
-      jobName,
-      offerDescription = "",
-    } = req.body || {};
+  const {
+    mentorId,
+    jobId,
+    newJob,
+    offerDescription = "",
+  } = req.body || {};
 
-    if (!mentorId || !mongoose.Types.ObjectId.isValid(mentorId)) {
-      return res.status(400).json({
-        message: "Invalid mentor ID",
-      });
-    }
-
-    if (
-      typeof jobName !== "string" ||
-      !jobName.trim() ||
-      jobName.trim().length > 120
-    ) {
-      return res.status(400).json({
-        message: "Job name is required and must be up to 120 characters",
-      });
-    }
-
-    if (
-      typeof offerDescription !== "string" ||
-      offerDescription.trim().length > 1000
-    ) {
-      return res.status(400).json({
-        message: "Offer description must be text with up to 1000 characters",
-      });
-    }
-
-    const mentor = await User.findOne({
-      _id: mentorId,
-      role: "mentor",
+  // VALIDACIJA NA MENTOR
+  if (!mongoose.Types.ObjectId.isValid(mentorId)) {
+    return res.status(400).json({
+      message: "Invalid mentor ID",
     });
+  }
 
-    if (!mentor) {
-      return res.status(404).json({
-        message: "Mentor not found",
+  // VALIDACIJA NA OPISOT NA PONUDATA
+  if (
+    typeof offerDescription !== "string" ||
+    offerDescription.trim().length > 1000
+  ) {
+    return res.status(400).json({
+      message: "Offer description must be text with up to 1000 characters",
+    });
+  }
+
+  // Startupot mora da izbere postoecki ili nov Job
+  const hasExistingJob = Boolean(jobId);
+  const hasNewJob = Boolean(newJob);
+
+  if (hasExistingJob === hasNewJob) {
+    return res.status(400).json({
+      message: "Select an existing job or create a new job",
+    });
+  }
+
+  // VALIDACIJA NA POSTOECKI JOB
+  if (
+    hasExistingJob &&
+    !mongoose.Types.ObjectId.isValid(jobId)
+  ) {
+    return res.status(400).json({
+      message: "Invalid job ID",
+    });
+  }
+
+  // VALIDACIJA NA NOV JOB
+  if (hasNewJob) {
+    if (
+      typeof newJob !== "object" ||
+      Array.isArray(newJob) ||
+      typeof newJob.title !== "string" ||
+      !newJob.title.trim() ||
+      typeof newJob.description !== "string" ||
+      !newJob.description.trim() ||
+      !Array.isArray(newJob.skillsRequired) ||
+      newJob.skillsRequired.length === 0 ||
+      !newJob.skillsRequired.every(
+        (skill) =>
+          typeof skill === "string" &&
+          Boolean(skill.trim())
+      )
+    ) {
+      return res.status(400).json({
+        message:
+          "Valid job title, description and at least one skill are required",
       });
     }
+  }
 
-    const application = await Application.create({
-      companyId: req.user._id,
-      mentorId,
-      jobId: null,
-      jobName: jobName.trim(),
-      offerDescription: offerDescription.trim(),
-      applicationType: "companyToMentor",
-      status: "pending",
+  const session = await mongoose.startSession();
+
+  try {
+    let createdApplication = null;
+    let selectedJob = null;
+
+    await session.withTransaction(async () => {
+      // PROVERKA DALI MENTOROT POSTOI
+      const mentor = await User.findOne({
+        _id: mentorId,
+        role: "mentor",
+      }).session(session);
+
+      if (!mentor) {
+        const error = new Error("Mentor not found");
+        error.statusCode = 404;
+        throw error;
+      }
+
+      // OPCIJA 1: POSTOECKI JOB
+      if (hasExistingJob) {
+        selectedJob = await Job.findOne({
+          _id: jobId,
+          companyId: req.user._id,
+          status: "Open",
+        }).session(session);
+
+        if (!selectedJob) {
+          const error = new Error(
+            "Job not found, not yours, or no longer open"
+          );
+
+          error.statusCode = 404;
+          throw error;
+        }
+      }
+
+      // OPCIJA 2: KREIRANJE NOV JOB
+      if (hasNewJob) {
+        const createdJobs = await Job.create(
+          [
+            {
+              companyId: req.user._id,
+              title: newJob.title.trim(),
+              description: newJob.description.trim(),
+              skillsRequired: newJob.skillsRequired.map(
+                (skill) => skill.trim()
+              ),
+              status: "Open",
+            },
+          ],
+          { session }
+        );
+
+        selectedJob = createdJobs[0];
+      }
+
+      // PROVERKA DALI VEKE POSTOI AKTIVNA PONUDA
+      // DO ISTIOT MENTOR ZA ISTIOT JOB
+      const existingOffer = await Application.findOne({
+        jobId: selectedJob._id,
+        mentorId,
+        applicationType: "companyToMentor",
+        status: {
+          $in: ["pending", "accepted"],
+        },
+      }).session(session);
+
+      if (existingOffer) {
+        const error = new Error(
+          "An active offer already exists for this mentor and job"
+        );
+
+        error.statusCode = 409;
+        throw error;
+      }
+
+      // KREIRANJE DIREKTNA PONUDA
+      const createdApplications = await Application.create(
+        [
+          {
+            companyId: req.user._id,
+            mentorId,
+            jobId: selectedJob._id,
+            jobName: selectedJob.title,
+            offerDescription: offerDescription.trim(),
+            applicationType: "companyToMentor",
+            status: "pending",
+          },
+        ],
+        { session }
+      );
+
+      createdApplication = createdApplications[0];
     });
 
     return res.status(201).json({
       message: "Job offer sent successfully",
-      application,
+      application: createdApplication,
+      job: selectedJob,
     });
   } catch (error) {
     console.error("Send job offer error:", error);
 
-    return res.status(500).json({
-      message: "Server error while sending job offer",
+    if (
+      error.code === 112 ||
+      error.codeName === "WriteConflict"
+    ) {
+      return res.status(409).json({
+        message:
+          "This job was updated by another request. Please try again.",
+      });
+    }
+
+    return res.status(error.statusCode || 500).json({
+      message: error.statusCode
+        ? error.message
+        : "Server error while sending job offer",
     });
+  } finally {
+    await session.endSession();
   }
 };
 
@@ -236,73 +366,77 @@ const respondToApplication = async (req, res) => {
       });
     }
 
-    // Mentorot mozhe da odgovara samo na direktni ponudi do nego
+    // MENTOR ODGOVARA SAMO NA DIREKTNI PONUDI DO NEGO
     if (application.applicationType === "companyToMentor") {
       if (
         req.user.role !== "mentor" ||
-        application.mentorId.toString() !== req.user._id.toString()
+        application.mentorId.toString() !==
+          req.user._id.toString()
       ) {
         return res.status(403).json({
-          message: "You are not authorized to respond to this offer",
+          message:
+            "You are not authorized to respond to this offer",
         });
       }
     }
 
-    // Startupot mozhe da odgovara samo na aplikacii do nego
+    // STARTUP ODGOVARA SAMO NA APLIKACII DO NEGO
     if (application.applicationType === "mentorToCompany") {
       if (
         req.user.role !== "startup" ||
-        application.companyId.toString() !== req.user._id.toString()
+        application.companyId.toString() !==
+          req.user._id.toString()
       ) {
         return res.status(403).json({
-          message: "You are not authorized to respond to this application",
+          message:
+            "You are not authorized to respond to this application",
         });
       }
     }
 
     if (application.status !== "pending") {
       return res.status(409).json({
-        message: "This application has already been processed",
+        message:
+          "This application has already been processed",
       });
     }
 
-    // POSEBNA LOGIKA:
-    // Startupot prifakja mentor za javen Job
-    if (
-      application.applicationType === "mentorToCompany" &&
-      status === "accepted"
-    ) {
+    // PRIFAKJANJE NA APLIKACIJA ILI DIREKTNA PONUDA
+    // AKO E POVRZANA SO JOB
+    if (status === "accepted" && application.jobId) {
       const session = await mongoose.startSession();
 
       try {
         let acceptedApplication = null;
 
         await session.withTransaction(async () => {
-          // Povtorna proverka vo ramki na transakcijata
-          const currentApplication = await Application.findOne({
-            _id: id,
-            companyId: req.user._id,
-            applicationType: "mentorToCompany",
-            status: "pending",
-          }).session(session);
+          // Povtorna proverka na aplikacijata
+          const currentApplication =
+            await Application.findOne({
+              _id: id,
+              status: "pending",
+            }).session(session);
 
           if (!currentApplication) {
             const error = new Error(
               "This application has already been processed"
             );
+
             error.statusCode = 409;
             throw error;
           }
 
-          // Atomski go zatvorame oglasot samo ako e Open
+          // Go zatvorame Job samo ako e Open
           const job = await Job.findOneAndUpdate(
             {
               _id: currentApplication.jobId,
-              companyId: req.user._id,
+              companyId: currentApplication.companyId,
               status: "Open",
             },
             {
-              $set: { status: "Closed" },
+              $set: {
+                status: "Closed",
+              },
             },
             {
               new: true,
@@ -315,29 +449,31 @@ const respondToApplication = async (req, res) => {
             const error = new Error(
               "This job is already closed or unavailable"
             );
+
             error.statusCode = 409;
             throw error;
           }
 
-          // Ja prifakjame aplikacijata na izbraniot mentor
-          // Ja prifakjame aplikacijata na izbraniot mentor
-currentApplication.status = "accepted";
+          // Ja prifakjame izbranata aplikacija
+          currentApplication.status = "accepted";
+          currentApplication.acceptedAt = new Date();
 
-// Go zachuvuvame datumot na prifakjanje
-currentApplication.acceptedAt = new Date();
+          await currentApplication.save({ session });
 
-await currentApplication.save({ session });
-
-          // Gi odbivame site ostanati pending aplikacii
+          // Gi odbivame drugite pending aplikacii
+          // i direktni ponudi za istiot Job
           await Application.updateMany(
             {
               jobId: job._id,
-              applicationType: "mentorToCompany",
-              _id: { $ne: currentApplication._id },
+              _id: {
+                $ne: currentApplication._id,
+              },
               status: "pending",
             },
             {
-              $set: { status: "rejected" },
+              $set: {
+                status: "rejected",
+              },
             },
             { session }
           );
@@ -346,7 +482,8 @@ await currentApplication.save({ session });
         });
 
         return res.status(200).json({
-          message: "Mentor accepted and job closed successfully",
+          message:
+            "Application accepted and job closed successfully",
           application: acceptedApplication,
         });
       } catch (error) {
@@ -369,34 +506,36 @@ await currentApplication.save({ session });
       }
     }
 
-    // STANDARDNA LOGIKA:
-    // Odbivanje na aplikacija ili odgovor na direktna ponuda
-   // Ako ponudata e prifatena, zachuvuvame i datum
-const updateData = {
-  status,
-};
+    // STANDARDNA LOGIKA
+    // Odbivanje ili odgovor na postara direktna ponuda
+    // koja nema jobId
+    const updateData = {
+      status,
+    };
 
-if (status === "accepted") {
-  updateData.acceptedAt = new Date();
-}
+    if (status === "accepted") {
+      updateData.acceptedAt = new Date();
+    }
 
-const updatedApplication = await Application.findOneAndUpdate(
-  {
-    _id: id,
-    status: "pending",
-  },
-  {
-    $set: updateData,
-  },
-  {
-    new: true,
-    runValidators: true,
-  }
-);
+    const updatedApplication =
+      await Application.findOneAndUpdate(
+        {
+          _id: id,
+          status: "pending",
+        },
+        {
+          $set: updateData,
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
 
     if (!updatedApplication) {
       return res.status(409).json({
-        message: "This application has already been processed",
+        message:
+          "This application has already been processed",
       });
     }
 
@@ -408,7 +547,8 @@ const updatedApplication = await Application.findOneAndUpdate(
     console.error("Respond to application error:", error);
 
     return res.status(500).json({
-      message: "Server error while responding to application",
+      message:
+        "Server error while responding to application",
     });
   }
 };
@@ -439,30 +579,35 @@ const cancelJobOffer = async (req, res) => {
 
     if (application.status !== "pending") {
       return res.status(400).json({
-        message: "Only pending job offers can be cancelled",
+        message:
+          "Only pending job offers can be cancelled",
       });
     }
 
-    // Atomsko otkazuvanje samo na pending ponuda
-    const cancelledApplication = await Application.findOneAndUpdate(
-      {
-        _id: id,
-        companyId: req.user._id,
-        applicationType: "companyToMentor",
-        status: "pending",
-      },
-      {
-        $set: { status: "cancelled" },
-      },
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
+    // Atomsko otkazuvanje na pending ponuda
+    const cancelledApplication =
+      await Application.findOneAndUpdate(
+        {
+          _id: id,
+          companyId: req.user._id,
+          applicationType: "companyToMentor",
+          status: "pending",
+        },
+        {
+          $set: {
+            status: "cancelled",
+          },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
 
     if (!cancelledApplication) {
       return res.status(409).json({
-        message: "This offer has already been processed",
+        message:
+          "This offer has already been processed",
       });
     }
 
@@ -474,7 +619,8 @@ const cancelJobOffer = async (req, res) => {
     console.error("Cancel job offer error:", error);
 
     return res.status(500).json({
-      message: "Server error while cancelling job offer",
+      message:
+        "Server error while cancelling job offer",
     });
   }
 };
@@ -485,7 +631,6 @@ const completeJob = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Proverka dali ID-to e validno
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({
         message: "Invalid application ID",
@@ -493,25 +638,26 @@ const completeJob = async (req, res) => {
     }
 
     // Samo mentorot na koj mu e dodelen angazhmanot
-    // mozhe da go oznachi kako zavrshen
-    const application = await Application.findOneAndUpdate(
-      {
-        _id: id,
-        mentorId: req.user._id,
-        status: "accepted",
-        acceptedStatus: "in progress",
-      },
-      {
-        $set: {
-          acceptedStatus: "done",
-          completedAt: new Date(),
+    // moze da go oznaci kako zavrshen
+    const application =
+      await Application.findOneAndUpdate(
+        {
+          _id: id,
+          mentorId: req.user._id,
+          status: "accepted",
+          acceptedStatus: "in progress",
         },
-      },
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
+        {
+          $set: {
+            acceptedStatus: "done",
+            completedAt: new Date(),
+          },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
 
     if (!application) {
       return res.status(404).json({
@@ -521,18 +667,19 @@ const completeJob = async (req, res) => {
     }
 
     return res.status(200).json({
-      message: "Job marked as completed successfully",
+      message:
+        "Job marked as completed successfully",
       application,
     });
   } catch (error) {
     console.error("Complete job error:", error);
 
     return res.status(500).json({
-      message: "Server error while completing job",
+      message:
+        "Server error while completing job",
     });
   }
 };
-
 
 module.exports = {
   applyToJob,

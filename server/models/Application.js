@@ -3,13 +3,11 @@ const mongoose = require("mongoose");
 const applicationSchema = new mongoose.Schema(
   {
     jobId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Job",
-      default: null,
-      required: function () {
-        return this.applicationType === "mentorToCompany";
-      },
-    },
+  type: mongoose.Schema.Types.ObjectId,
+  ref: "Job",
+  default: null,
+  required: true,
+},
 
     jobName: {
       type: String,
