@@ -9,6 +9,7 @@ const authRoutes = require("./routes/authRoutes");
 const jobRoutes = require("./routes/jobRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
 const mentorRoutes = require("./routes/mentorRoutes");
+const startupRoutes = require("./routes/startupRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const statisticsRoutes = require("./routes/statisticsRoutes");
 
@@ -23,6 +24,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/mentors", mentorRoutes);
+app.use("/api/startups", startupRoutes);
 app.use(
   "/uploads",
   express.static(path.join(__dirname, "uploads"))

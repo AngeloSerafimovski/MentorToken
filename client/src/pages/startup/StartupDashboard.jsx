@@ -5,6 +5,7 @@ import api from "../../api/axios";
 import AssignedJobs from "../../components/dashboard/AssignedJobs/AssignedJobs";
 import BestPerformingMentors from "../../components/dashboard/BestPerformingMentors/BestPerformingMentors";
 import OverallStatistics from "../../components/dashboard/OverallStatistics/OverallStatistics";
+import SentJobOffers from "../../components/dashboard/SentJobOffers/SentJobOffers";
 
 import "./StartupDashboard.css";
 
@@ -32,7 +33,10 @@ function StartupDashboard() {
       } catch (err) {
         if (!active) return;
 
-        console.error("Failed to load startup applications:", err);
+        console.error(
+          "Failed to load startup applications:",
+          err
+        );
 
         setError(
           err.response?.data?.message ||
@@ -58,16 +62,25 @@ function StartupDashboard() {
         <p style={{ color: "#d83b4d" }}>{error}</p>
       ) : (
         <div className="startup-dashboard-grid">
+
+          {/* LEVA STRANA */}
           <div className="startup-dashboard-left">
             <AssignedJobs applications={applications} />
+
+            {/* Direktni ponudi isprateni do mentori */}
+            <SentJobOffers applications={applications} />
           </div>
 
+          {/* DESNA STRANA */}
           <div className="startup-dashboard-right">
-            <BestPerformingMentors applications={applications} />
+            <BestPerformingMentors
+              applications={applications}
+            />
 
-            {/* Grafikonoт go ostavame nepromenet */}
+            {/* Postoeckiot Chart.js grafik */}
             <OverallStatistics />
           </div>
+
         </div>
       )}
     </div>

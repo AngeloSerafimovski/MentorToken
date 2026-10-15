@@ -1,0 +1,133 @@
+.sent-job-offers {
+  margin-top: 28px;
+  width: 100%;
+}
+
+.sent-job-offers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sent-job-offers-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #303d50;
+}
+
+.sent-job-offers-view-all {
+  border: none;
+  background: transparent;
+  color: #696cff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sent-job-offers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sent-job-offer-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 12px;
+  min-height: 78px;
+  box-sizing: border-box;
+}
+
+.sent-job-offer-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #eeebff;
+  color: #696cff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sent-job-offer-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sent-job-offer-info h3 {
+  margin: 0 0 6px;
+  color: #40516b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sent-job-offer-info p {
+  margin: 0;
+  color: #8a94a6;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.sent-job-offer-status {
+  padding: 7px 12px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.sent-job-offer-status.pending {
+  background: #fff3d9;
+  color: #d99200;
+}
+
+.sent-job-offer-status.accepted {
+  background: #e8f5ee;
+  color: #28a36a;
+}
+
+.sent-job-offer-status.done {
+  background: #e9e7ff;
+  color: #696cff;
+}
+
+.sent-job-offer-status.rejected {
+  background: #fff0f2;
+  color: #ff4d65;
+}
+
+.sent-job-offer-status.cancelled {
+  background: #f0f1f4;
+  color: #87909e;
+}
+
+.sent-job-offers-empty {
+  margin: 0;
+  padding: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #8994a7;
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .sent-job-offer-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .sent-job-offer-status {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+}
