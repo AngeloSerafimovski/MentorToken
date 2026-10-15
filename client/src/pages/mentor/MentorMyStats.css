@@ -1,0 +1,392 @@
+.mentor-my-stats {
+  padding: 26px 34px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mentor-my-stats-title {
+  margin: 0 0 24px;
+  color: #344563;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* GOREN DEL */
+
+.mentor-stats-top-grid {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.mentor-stats-profile-card,
+.mentor-stats-about-card {
+  background: #ffffff;
+  border-radius: 20px;
+  min-height: 230px;
+  box-sizing: border-box;
+}
+
+.mentor-stats-profile-card {
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.mentor-stats-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: #eeeeff;
+  color: #696cff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.mentor-stats-online-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #34c759;
+  color: white;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.mentor-stats-profile-card h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 500;
+  color: #344563;
+}
+
+.mentor-stats-role {
+  margin: 5px 0 14px;
+  font-size: 13px;
+  color: #696cff;
+}
+
+.mentor-stats-contact {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.mentor-stats-contact div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #7e8aa3;
+  font-size: 12px;
+  word-break: break-word;
+}
+
+.mentor-stats-contact svg {
+  flex-shrink: 0;
+  color: #696cff;
+}
+
+.mentor-stats-about-card {
+  padding: 25px 30px;
+}
+
+.mentor-stats-about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.mentor-stats-about-header h2 {
+  margin: 0;
+  color: #696cff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mentor-stats-edit-button {
+  border: none;
+  background: transparent;
+  color: #696cff;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.mentor-stats-skills {
+  font-size: 13px;
+  color: #344563;
+  margin: 0 0 18px;
+}
+
+.mentor-stats-description {
+  font-size: 12px;
+  line-height: 1.65;
+  color: #8290a6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* DOLEN DEL */
+
+.mentor-stats-bottom-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(220px, 0.85fr);
+  gap: 36px;
+}
+
+.mentor-stats-performance h2,
+.mentor-stats-overview h2 {
+  margin: 0 0 17px 5px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #344563;
+}
+
+.mentor-stats-chart-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px 20px 16px;
+}
+
+.mentor-stats-chart-card h3 {
+  margin: 0 0 14px;
+  color: #65748e;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.mentor-stats-chart-card p {
+  color: #a0aabd;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.mentor-stats-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mentor-stats-grid-line {
+  stroke: #edf0f5;
+  stroke-width: 1;
+}
+
+.mentor-stats-chart-line {
+  fill: none;
+  stroke: #696cff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mentor-stats-chart-label {
+  fill: #a0aabd;
+  font-size: 11px;
+}
+
+.mentor-stats-overview-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mentor-stats-overview-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mentor-stats-overview-card span {
+  color: #8995aa;
+  font-size: 12px;
+}
+
+.mentor-stats-overview-card strong {
+  color: #344563;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.mentor-stats-overview-highlight {
+  background: #696cff;
+}
+
+.mentor-stats-overview-highlight span,
+.mentor-stats-overview-highlight strong {
+  color: #ffffff;
+}
+
+/* EDIT PROFILE MODAL */
+
+.mentor-stats-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 36, 62, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.mentor-stats-modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  padding: 26px;
+  box-sizing: border-box;
+}
+
+.mentor-stats-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.mentor-stats-modal-header h2 {
+  margin: 0;
+  color: #344563;
+  font-size: 21px;
+}
+
+.mentor-stats-modal-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #65748e;
+}
+
+.mentor-stats-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mentor-stats-modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #344563;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.mentor-stats-modal input,
+.mentor-stats-modal textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e1e5ed;
+  border-radius: 8px;
+  padding: 11px 12px;
+  font: inherit;
+  color: #344563;
+  outline: none;
+}
+
+.mentor-stats-modal input:focus,
+.mentor-stats-modal textarea:focus {
+  border-color: #696cff;
+}
+
+.mentor-stats-modal textarea {
+  resize: vertical;
+}
+
+.mentor-stats-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.mentor-stats-cancel-button,
+.mentor-stats-save-button {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 17px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.mentor-stats-cancel-button {
+  background: #f0f1f7;
+  color: #65748e;
+}
+
+.mentor-stats-save-button {
+  background: #696cff;
+  color: #ffffff;
+}
+
+.mentor-stats-save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mentor-stats-error {
+  color: #d83b4d;
+  font-size: 13px;
+}
+/* Chart.js grafikon */
+
+.mentor-stats-chart-container {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .mentor-stats-top-grid {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .mentor-stats-bottom-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 650px) {
+  .mentor-my-stats {
+    padding: 20px 15px 30px;
+  }
+
+  .mentor-stats-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mentor-stats-profile-card,
+  .mentor-stats-about-card {
+    min-height: auto;
+  }
+
+  .mentor-stats-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}

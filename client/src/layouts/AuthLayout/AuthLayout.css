@@ -1,0 +1,21 @@
+.auth-layout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+
+  background: #696cff;
+}
+
+.auth-content {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+
+  background: white;
+
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+
+  position: relative;
+  z-index: 1;
+}

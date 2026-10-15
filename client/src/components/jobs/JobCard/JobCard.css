@@ -1,0 +1,151 @@
+.job-card {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 260px;
+  padding: 16px;
+
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.job-card-company {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+.job-card-company-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  border-radius: 10px;
+  background-color: #eeebff;
+
+  color: #696cff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.job-card-company-name {
+  max-width: 125px;
+
+  font-size: 12px;
+  line-height: 1.4;
+  color: #60718b;
+}
+
+.job-card-title {
+  margin: 0 0 12px;
+
+  font-size: 13px;
+  font-weight: 500;
+  color: #40516b;
+}
+
+.job-card-description {
+  margin: 0 0 18px;
+
+  font-size: 12px;
+  line-height: 1.5;
+  color: #8490a3;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.job-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-top: auto;
+}
+
+.job-card-applicants {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  font-size: 10px;
+  color: #8994a7;
+}
+
+.job-card-applicants-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: #53657f;
+}
+
+.job-card-category {
+  font-size: 11px;
+  color: #8994a7;
+}
+
+.job-card-view-button {
+  padding: 8px 16px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: #696cff;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.job-card-view-button:hover {
+  background-color: #575ae8;
+}
+/* Prikaz na mentorot shto e prifaten za Job */
+
+.job-card-assigned-mentor {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 14px;
+  margin-bottom: 14px;
+
+  font-size: 13px;
+}
+
+.job-card-assigned-label {
+  color: #8a94a6;
+  font-weight: 400;
+}
+
+.job-card-assigned-name {
+  color: #696cff;
+  font-weight: 600;
+}
+/* Profilna slika na startupot vo Job kartichkata */
+
+.job-card-company-avatar {
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.job-card-company-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

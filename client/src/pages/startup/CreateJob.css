@@ -1,0 +1,167 @@
+.create-job-page {
+  width: 100%;
+  padding: 10px 32px 40px;
+  box-sizing: border-box;
+}
+
+.create-job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.create-job-header h1 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #3d4d66;
+}
+
+.create-job-header p {
+  margin: 0;
+  font-size: 13px;
+  color: #8994a7;
+}
+
+.create-job-back {
+  padding: 10px 16px;
+  border: 1px solid #dedee8;
+  border-radius: 6px;
+  background: #fff;
+  color: #53657f;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.create-job-form {
+  max-width: 850px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.create-job-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.create-job-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #40516b;
+}
+
+.create-job-field input,
+.create-job-field textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #e3e6ee;
+  border-radius: 7px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 13px;
+  color: #40516b;
+  background: #fff;
+}
+
+.create-job-field input:focus,
+.create-job-field textarea:focus {
+  border-color: #696cff;
+}
+
+.create-job-field textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.create-job-field input::placeholder,
+.create-job-field textarea::placeholder {
+  color: #a3adbd;
+}
+
+.create-job-field small {
+  font-size: 11px;
+  color: #8994a7;
+}
+
+.create-job-error {
+  font-size: 12px;
+  color: #e53935;
+}
+
+.create-job-type {
+  padding: 16px;
+  border: 1px solid #e3e6ee;
+  border-radius: 8px;
+  background: #fafaff;
+}
+
+.create-job-type-badge {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: #eeebff;
+  color: #696cff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.create-job-type p {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #8994a7;
+}
+
+.create-job-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.create-job-cancel,
+.create-job-submit {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.create-job-cancel {
+  background: #f1f2f7;
+  color: #53657f;
+}
+
+.create-job-submit {
+  background: #696cff;
+  color: #fff;
+}
+
+.create-job-submit:hover {
+  background: #575ae8;
+}
+
+@media (max-width: 650px) {
+  .create-job-page {
+    padding: 16px;
+  }
+
+  .create-job-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .create-job-form {
+    padding: 20px;
+  }
+}

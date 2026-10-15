@@ -1,0 +1,88 @@
+.startup-jobs {
+  width: 100%;
+  padding: 10px 32px 40px;
+  box-sizing: border-box;
+}
+
+.startup-jobs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 36px;
+}
+
+.startup-jobs-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #3d4d66;
+}
+
+.startup-jobs-create-button {
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #696cff;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.startup-jobs-create-button:hover {
+  background-color: #575ae8;
+}
+
+.startup-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.startup-jobs-empty {
+  grid-column: 1 / -1;
+  padding: 24px;
+
+  background-color: #ffffff;
+  border-radius: 12px;
+
+  color: #8994a7;
+  font-size: 13px;
+}
+
+@media (max-width: 1300px) {
+  .startup-jobs-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .startup-jobs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .startup-jobs {
+    padding: 16px;
+  }
+
+  .startup-jobs-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .startup-jobs-grid {
+    grid-template-columns: 1fr;
+  }
+}

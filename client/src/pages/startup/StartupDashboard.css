@@ -1,0 +1,38 @@
+.startup-dashboard {
+  padding: 10px 32px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.startup-dashboard-grid {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+
+  gap: 24px;
+
+  align-items: start;
+}
+
+.startup-dashboard-left,
+.startup-dashboard-right {
+  min-width: 0;
+}
+
+.startup-dashboard-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 1100px) {
+  .startup-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .startup-dashboard {
+    padding: 16px;
+  }
+}

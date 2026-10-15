@@ -1,0 +1,113 @@
+.mentor-open-job-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(35, 42, 58, 0.55);
+  box-sizing: border-box;
+}
+
+.mentor-open-job-modal {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.mentor-open-job-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #696cff;
+  cursor: pointer;
+}
+
+.mentor-open-job-company {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding-right: 25px;
+  color: #61728b;
+  font-size: 13px;
+}
+
+.mentor-open-job-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  background: #eeedff;
+  color: #696cff;
+  border-radius: 9px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mentor-open-job-modal h2 {
+  margin: 0 0 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #40516b;
+}
+
+.mentor-open-job-description {
+  margin: 0 0 20px;
+  color: #75839a;
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.mentor-open-job-skills {
+  margin: 0 0 22px;
+  color: #61728b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.mentor-open-job-apply {
+  min-width: 90px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #696cff;
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.mentor-open-job-apply:hover:not(:disabled) {
+  background: #575af0;
+}
+
+.mentor-open-job-apply:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mentor-open-job-error {
+  color: #e74c6f;
+  font-size: 12px;
+}
+
+.mentor-open-job-success {
+  color: #39a95a;
+  font-size: 12px;
+}

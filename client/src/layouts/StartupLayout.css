@@ -1,0 +1,10 @@
+.startup-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f7f7f9;
+}
+
+.startup-content {
+  flex: 1;
+  min-width: 0;
+}

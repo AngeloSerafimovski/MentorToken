@@ -1,0 +1,213 @@
+.mentor-job-feed {
+  padding: 35px 32px 60px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.mentor-job-feed-title {
+  margin: 0 0 22px;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: #40516b;
+}
+
+.mentor-job-feed-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.mentor-job-feed-selects,
+.mentor-job-feed-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mentor-job-feed-select {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #61728b;
+  font-size: 12px;
+}
+
+.mentor-job-feed-select select {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #8490a3;
+  font-size: 12px;
+  cursor: pointer;
+  max-width: 160px;
+}
+
+.mentor-job-feed-filter-button,
+.mentor-job-feed-grid-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #61728b;
+  padding: 10px 14px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.mentor-job-feed-grid-button {
+  color: #696cff;
+  padding: 10px;
+}
+
+.mentor-job-feed-filter-button.active {
+  color: #696cff;
+}
+
+.mentor-job-feed-filter-info {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  color: #61728b;
+  font-size: 12px;
+}
+
+.mentor-job-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.mentor-job-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 270px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.mentor-job-card-company {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  font-size: 12px;
+  color: #61728b;
+}
+
+.mentor-job-card-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: #eeedff;
+  color: #696cff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mentor-job-card-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #40516b;
+}
+
+.mentor-job-card-description {
+  margin: 0 0 20px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #75839a;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mentor-job-card-button {
+  align-self: flex-start;
+  margin-top: auto;
+  border: none;
+  border-radius: 5px;
+  padding: 9px 18px;
+  background: #696cff;
+  color: #ffffff;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.mentor-job-card-button:hover {
+  background: #575af0;
+}
+
+.mentor-job-feed-message {
+  padding: 20px;
+  background: #ffffff;
+  color: #75839a;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.mentor-job-feed-error {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background: #fff0f3;
+  color: #e74c6f;
+  font-size: 13px;
+}
+
+@media (max-width: 1250px) {
+  .mentor-job-feed-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 950px) {
+  .mentor-job-feed-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .mentor-job-feed {
+    padding: 24px 16px;
+  }
+
+  .mentor-job-feed-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .mentor-job-feed-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Profilna slika na startupot vo Mentor Job Feed */
+
+.mentor-job-card-logo {
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mentor-job-card-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

@@ -1,0 +1,280 @@
+/* GLAVEN DASHBOARD */
+
+.mentor-dashboard {
+  padding: 36px 32px 50px 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* RASPORED NA KOLONITE */
+
+.mentor-dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.mentor-dashboard-right {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+}
+
+.mentor-dashboard-section {
+  min-width: 0;
+}
+
+/* NASLOVI */
+
+.mentor-dashboard-title {
+  margin: 0 0 14px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #40516b;
+}
+
+.mentor-dashboard-subtitle {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #63738d;
+}
+
+/* ASSIGNED JOBS FILTERI */
+
+.mentor-assigned-filters {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-bottom: 1px solid #e2e3f2;
+  margin-bottom: 12px;
+  overflow-x: auto;
+}
+
+.mentor-assigned-filter {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0 0 12px;
+  color: #64738c;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mentor-assigned-filter.active {
+  color: #696cff;
+}
+
+.mentor-assigned-filter.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #696cff;
+}
+
+/* LISTI */
+
+.mentor-dashboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mentor-assigned-job-row,
+.mentor-pending-job-row,
+.mentor-application-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: #ffffff;
+  min-height: 43px;
+  padding: 10px 14px;
+  box-sizing: border-box;
+}
+
+/* IME NA JOB */
+
+.mentor-job-name {
+  font-size: 12px;
+  font-weight: 400;
+  color: #61728b;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* STATUSI */
+
+.mentor-job-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 78px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.mentor-job-status-done {
+  background-color: #eaf8ed;
+  color: #3cbd55;
+}
+
+.mentor-job-status-rejected {
+  background-color: #fff0f3;
+  color: #ff477e;
+}
+
+.mentor-job-status-progress {
+  background-color: #eeedff;
+  color: #696cff;
+}
+
+/* PENDING JOBS */
+
+.mentor-pending-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.mentor-accept-button,
+.mentor-reject-button {
+  min-width: 62px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.mentor-accept-button {
+  background-color: #696cff;
+  color: #ffffff;
+  border: 1px solid #696cff;
+}
+
+.mentor-reject-button {
+  background-color: #ffffff;
+  color: #ff477e;
+  border: 1px solid #ff477e;
+}
+
+.mentor-accept-button:hover,
+.mentor-reject-button:hover {
+  opacity: 0.8;
+}
+
+.mentor-accept-button:disabled,
+.mentor-reject-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* APPLICATIONS SENT */
+
+.mentor-applications-section {
+  margin-top: 2px;
+}
+
+.mentor-application-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dedcff;
+  flex-shrink: 0;
+}
+
+/* EMPTY STATE */
+
+.mentor-dashboard-empty {
+  background-color: #ffffff;
+  color: #8290a4;
+  font-size: 12px;
+  padding: 18px 14px;
+  margin: 0;
+}
+
+/* ERROR MESSAGE */
+
+.mentor-dashboard-error {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background-color: #fff0f3;
+  color: #e74c6f;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.mentor-assigned-job-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.mentor-mark-done-button {
+  border: none;
+  background: #696cff;
+  color: #ffffff;
+  border-radius: 7px;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mentor-mark-done-button:hover {
+  background: #5558e8;
+}
+
+.mentor-mark-done-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 650px) {
+  .mentor-assigned-job-actions {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .mentor-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mentor-dashboard {
+    padding: 24px 16px;
+  }
+
+  .mentor-assigned-filters {
+    gap: 14px;
+  }
+
+  .mentor-pending-job-row {
+    flex-wrap: wrap;
+  }
+
+  .mentor-pending-actions {
+    margin-left: auto;
+  }
+}

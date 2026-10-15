@@ -1,0 +1,218 @@
+.register-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+}
+
+.register-form-container {
+  width: 100%;
+  max-width: 500px;
+}
+.register-form-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.register-logo {
+  margin-bottom: 60px;
+}
+
+.register-logo img {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
+.register-form-container h1 {
+  margin: 0 0 40px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #53657a;
+}
+
+/* startup /Mentor selektor*/
+
+.account-type-selector {
+  width: 100%;
+  display: flex;
+
+  border: 1px solid #696cff;
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.account-type {
+  flex: 1;
+  padding: 14px;
+
+  border: none;
+  background: white;
+
+  color: #696cff;
+  font-size: 15px;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+   transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.15s ease;
+}
+.account-type:hover {
+  background-color: #f1f1ff;
+
+}
+.account-type.active:hover {
+  background: #696cff;
+}
+.account-type.active {
+  background: #696cff;
+  color: white;
+  
+}
+
+/* Email and Passoword*/
+
+.register-fields {
+  margin-top: 30px;
+}
+
+.register-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.register-field label {
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+  color: #53657a;
+}
+
+.register-field input {
+  width: 100%;
+  height: 50px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d9dce1;
+  border-radius: 7px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+
+  box-sizing: border-box;
+  outline: none;
+
+  transition: border-color 0.2s ease;
+}
+
+.register-field input:focus {
+  border-color: #696cff;
+}
+
+.password-requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-top: 12px;
+
+  font-size: 12px;
+  color: #8a94a3;
+}
+
+.password-requirements p {
+  margin: 0 0 3px;
+  font-weight: 500;
+}
+
+.password-requirements span {
+  display: block;
+}
+
+.password-requirements span {
+  transition: color 0.2s ease;
+}
+
+.password-requirements span.valid {
+  color: #0ce97e;
+  font-weight: 500;
+}
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-input-wrapper input {
+  padding-right: 65px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  background: transparent;
+
+  color: #696cff;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+.continue-button {
+  width: 100%;
+  height: 50px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #696cff;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.continue-button:hover {
+  transform: scale(1.03);
+}
+.login-link {
+  margin-top: 18px;
+  text-align: center;
+
+  font-size: 13px;
+  color: #8a94a3;
+}
+
+.login-link a {
+  color: #696cff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Continue Button */
+
+.continue-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

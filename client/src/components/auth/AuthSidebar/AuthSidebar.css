@@ -1,0 +1,90 @@
+.auth-sidebar {
+  position: relative;
+
+  overflow: visible;
+  width: 43%;
+  min-height: 100vh;
+
+  padding: 75px 55px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: white;
+
+  background-color: #696cff;
+
+  box-sizing: border-box;
+
+}
+
+.auth-sidebar-heading {
+  position: relative;
+  z-index: 2;
+  margin-left: 65px;
+  margin-top: 15px;
+  
+}
+
+.auth-sidebar-heading h1 {
+  margin: 0;
+
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.auth-sidebar-heading p {
+  margin: 12px 0 0;
+
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.auth-sidebar-rocket {
+  position: absolute;
+
+  width: 800px;
+  
+
+  left: 300px;
+  bottom: 55px;
+
+  z-index: 3;
+  pointer-events: none;
+}
+
+.auth-sidebar-brand {
+  position: absolute;
+
+  left: 25%;
+  bottom: 55px;
+
+  transform: translateX(-50%);
+
+  z-index: 2;
+}
+
+.auth-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.auth-sidebar-logo img {
+  width: 25px;
+  height: 25px;
+}
+
+.auth-sidebar-website {
+  display: block;
+
+  margin-top: 2px;
+  margin-left: 32px;
+
+  font-size: 11px;
+}

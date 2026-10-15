@@ -1,0 +1,71 @@
+.pending-job-offers {
+  width: 100%;
+}
+
+.pending-job-offers h2 {
+  margin: 0 0 28px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3d4d66;
+}
+
+.pending-offers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pending-offer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  min-height: 42px;
+  padding: 8px 14px;
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+}
+
+.pending-offer-title {
+  min-width: 0;
+  font-size: 12px;
+  color: #667085;
+}
+
+.pending-offer-cancel {
+  flex-shrink: 0;
+
+  padding: 6px 16px;
+  border: 1px solid #ff4d7a;
+  border-radius: 6px;
+
+  background-color: #ffffff;
+  color: #ff4d7a;
+
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.pending-offer-cancel:hover {
+  background-color: #fff0f4;
+}
+
+.pending-offers-empty {
+  padding: 20px;
+  margin: 0;
+
+  background-color: #ffffff;
+  color: #8994a7;
+
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .pending-offer-row {
+    flex-wrap: wrap;
+  }
+}

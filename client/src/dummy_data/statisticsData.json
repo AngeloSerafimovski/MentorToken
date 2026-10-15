@@ -1,0 +1,50 @@
+[
+  {
+    "month": "Nov",
+    "accomplishment": 35
+  },
+  {
+    "month": "Dec",
+    "accomplishment": 48
+  },
+  {
+    "month": "Jan",
+    "accomplishment": 42
+  },
+  {
+    "month": "Feb",
+    "accomplishment": 60
+  },
+  {
+    "month": "Mar",
+    "accomplishment": 54
+  },
+  {
+    "month": "Apr",
+    "accomplishment": 68
+  },
+  {
+    "month": "May",
+    "accomplishment": 62
+  },
+  {
+    "month": "Jun",
+    "accomplishment": 75
+  },
+  {
+    "month": "Jul",
+    "accomplishment": 69
+  },
+  {
+    "month": "Aug",
+    "accomplishment": 85
+  },
+  {
+    "month": "Sep",
+    "accomplishment": 78
+  },
+  {
+    "month": "Oct",
+    "accomplishment": 92
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "job1",
+    "companyId": "startup1",
+    "title": "Revenue per rate",
+    "description": "Improve and analyze company revenue performance.",
+    "skillsRequired": ["Finance", "Strategy"],
+    "status": "Direct"
+  },
+  {
+    "_id": "job2",
+    "companyId": "startup1",
+    "title": "ARPU (Average revenue per use)",
+    "description": "Analyze average revenue per user.",
+    "skillsRequired": ["Analytics"],
+    "status": "Open"
+  },
+  {
+    "_id": "job3",
+    "companyId": "startup1",
+    "title": "CAC (Customer Acquisition Cost)",
+    "description": "Analyze customer acquisition costs.",
+    "skillsRequired": ["Marketing", "Analytics"],
+    "status": "Open"
+  },
+  {
+    "_id": "job4",
+    "companyId": "startup1",
+    "title": "Churn Rate",
+    "description": "Analyze customer churn.",
+    "skillsRequired": ["Analytics"],
+    "status": "Direct"
+  },
+  {
+    "_id": "job5",
+    "companyId": "startup1",
+    "title": "Burn Rate",
+    "description": "Review startup burn rate.",
+    "skillsRequired": ["Finance"],
+    "status": "Open"
+  },
+  {
+    "_id": "job6",
+    "companyId": "startup1",
+    "title": "Operation Efficiency",
+    "description": "Improve operational efficiency.",
+    "skillsRequired": ["Operations"],
+    "status": "Direct"
+  }
+]

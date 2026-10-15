@@ -1,0 +1,80 @@
+.best-mentors {
+  width: 100%;
+  min-width: 0;
+}
+
+.best-mentors-title {
+  margin: 0 0 24px;
+
+  font-size: 22px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.best-mentors-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+
+  padding: 8px 20px;
+}
+
+.best-mentor-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+  padding: 18px 0;
+}
+
+.best-mentor-item:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.best-mentor-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.best-mentor-avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: #eeebff;
+  color: #696cff;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.best-mentor-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.best-mentor-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.best-mentor-jobs {
+  font-size: 12px;
+  color: #999999;
+}
+
+.best-mentor-arrow {
+  font-size: 20px;
+  color: #696cff;
+}

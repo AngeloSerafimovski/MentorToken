@@ -1,0 +1,42 @@
+.overall-statistics {
+  width: 100%;
+  min-width: 0;
+}
+
+.overall-statistics-heading {
+  margin: 0 0 24px;
+
+  font-size: 22px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.overall-statistics-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+
+  padding: 24px;
+}
+
+.statistics-title {
+  margin: 0 0 10px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #333333;
+}
+
+.statistics-description {
+  margin: 0 0 28px;
+
+  font-size: 13px;
+  color: #999999;
+}
+
+.statistics-chart {
+  position: relative;
+
+  width: 100%;
+  height: 260px;
+}

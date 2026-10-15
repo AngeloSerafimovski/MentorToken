@@ -1,0 +1,171 @@
+.about-page {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* =========================
+   ABOUT HERO
+========================= */
+
+.about-hero {
+  width: 100%;
+  min-height: 320px;
+
+  margin: 0;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  border-radius: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+.about-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.about-hero-content h1 {
+  margin: 0 0 38px;
+
+  color: #222222;
+
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.about-hero-content p {
+  margin: 0 0 28px;
+
+  color: #222222;
+
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.about-contact-button {
+  min-width: 150px;
+  height: 44px;
+
+  padding: 0 20px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  background-color: #6366f1;
+  color: #ffffff;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.about-contact-button:hover {
+  background-color: #5558e8;
+}
+
+.about-button-arrow {
+  font-size: 16px;
+}
+
+/* =========================
+   TEAM
+========================= */
+
+.about-team {
+  width: 100%;
+  max-width: 1140px;
+
+  margin: 120px auto 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-team-image {
+  display: block;
+
+  width: 100%;
+  max-width: 1140px;
+  height: auto;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .about-hero {
+    width: calc(100% - 30px);
+    min-height: 250px;
+  }
+
+  .about-hero-content h1 {
+    font-size: 34px;
+    margin-bottom: 25px;
+  }
+
+  .about-team {
+    width: 90%;
+    margin-top: 90px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .about-hero {
+    width: calc(100% - 24px);
+    min-height: 250px;
+
+    padding: 35px 20px;
+  }
+
+  .about-hero-content h1 {
+    font-size: 27px;
+    margin-bottom: 20px;
+  }
+
+  .about-hero-content p {
+    font-size: 13px;
+  }
+
+  .about-hero-content p br {
+    display: none;
+  }
+
+  .about-team {
+    width: 94%;
+
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}

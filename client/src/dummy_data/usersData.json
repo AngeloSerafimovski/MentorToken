@@ -1,0 +1,49 @@
+[
+  {
+    "_id": "startup1",
+    "email": "techwave@mail.com",
+    "role": "startup",
+    "startupName": "TechWave Innovations",
+    "legalRepresentative": "John Smith",
+    "businessAddress": "Skopje"
+  },
+  {
+    "_id": "mentor1",
+    "name": "Lucie Weber",
+    "email": "lucie@mail.com",
+    "role": "mentor",
+    "skills": [
+      "Sales",
+      "Management"
+    ],
+    "achievedJobs": 18,
+    "rating": 4.8,
+    "desc": "Experienced mentor specializing in sales and management, helping startups improve team performance and develop effective business strategies."
+  },
+  {
+    "_id": "mentor2",
+    "name": "Crystal Porter",
+    "email": "crystal@mail.com",
+    "role": "mentor",
+    "skills": [
+      "Marketing",
+      "Strategy"
+    ],
+    "achievedJobs": 51,
+    "rating": 4.9,
+    "desc": "Business mentor with extensive experience in marketing and strategic planning, supporting startups in building their brand and achieving sustainable growth."
+  },
+  {
+    "_id": "mentor3",
+    "name": "Thomas Rose",
+    "email": "thomas@mail.com",
+    "role": "mentor",
+    "skills": [
+      "Finance",
+      "Business"
+    ],
+    "achievedJobs": 22,
+    "rating": 4.7,
+    "desc": "Experienced financial advisor helping startups with financial planning, business development and improving operational efficiency."
+  }
+]

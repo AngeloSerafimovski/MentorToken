@@ -1,0 +1,113 @@
+.mentor-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  width: 100%;
+  min-height: 120px;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.mentor-card-avatar {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background-color: #eeebff;
+  color: #696cff;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.mentor-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.mentor-card-name {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #344054;
+}
+
+.mentor-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+
+  font-size: 11px;
+  color: #667085;
+}
+
+.mentor-card-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.mentor-card-skills {
+  margin: 0 0 6px;
+  font-size: 11px;
+  color: #344054;
+}
+
+.mentor-card-description {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #667085;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mentor-card-button {
+  flex-shrink: 0;
+  align-self: flex-end;
+
+  padding: 7px 12px;
+
+  border: none;
+  border-radius: 4px;
+
+  background-color: #696cff;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.mentor-card-button:hover {
+  background-color: #575ae8;
+}
+
+@media (max-width: 600px) {
+  .mentor-card {
+    flex-wrap: wrap;
+  }
+
+  .mentor-card-content {
+    flex-basis: calc(100% - 80px);
+  }
+
+  .mentor-card-button {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,170 @@
+.setup-startup-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+}
+
+.setup-startup-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.setup-startup-brand-logo {
+  margin-bottom: 25px;
+}
+
+.setup-startup-brand-logo img {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
+.setup-startup-container h1 {
+  margin: 0 0 30px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+
+  color: #53657a;
+}
+
+.startup-logo-upload {
+  position: relative;
+
+  width: 122px;
+  height: 122px;
+
+  margin: 0 auto 30px;
+}
+
+.startup-logo-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.startup-camera-image {
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  bottom: 30px;
+  right: -45px;
+}
+
+.setup-startup-fields {
+  width: 100%;
+}
+
+.setup-startup-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.setup-startup-field label {
+  margin-bottom: 8px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  color: #53657a;
+}
+
+.setup-startup-field label span {
+  color: #ff4d6d;
+  margin-left: 2px;
+}
+
+.setup-startup-field input {
+  width: 100%;
+  height: 50px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d9dce1;
+  border-radius: 7px;
+
+  box-sizing: border-box;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+
+  outline: none;
+
+  transition: border-color 0.2s ease;
+}
+
+.setup-startup-field input:focus {
+  border-color: #696cff;
+}
+.setup-register-button {
+  width: 100%;
+  height: 50px;
+
+  margin-top: 5px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #696cff;
+  color: white;
+
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.setup-register-button:hover {
+  transform: scale(1.03);
+}
+
+.setup-register-button:active {
+  transform: scale(0.99);
+}
+.setup-terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin-top: 20px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+
+  color: #9aa3af;
+}
+
+.setup-terms input {
+  width: 18px;
+  height: 18px;
+
+  accent-color: #696cff;
+  cursor: pointer;
+}
+
+.setup-terms a {
+  color: #696cff;
+  text-decoration: underline;
+}
+.setup-register-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

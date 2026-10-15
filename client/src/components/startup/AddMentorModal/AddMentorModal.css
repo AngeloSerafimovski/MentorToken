@@ -1,0 +1,148 @@
+.add-mentor-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background: rgba(24, 30, 50, 0.45);
+}
+
+.add-mentor-modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+
+  padding: 65px 50px 55px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 2px solid #696cff;
+  border-radius: 36px;
+}
+
+.add-mentor-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  border: none;
+  background: transparent;
+  color: #696cff;
+  cursor: pointer;
+}
+
+.add-mentor-modal h2 {
+  margin: 0 0 12px;
+
+  color: #53657f;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.add-mentor-subtitle {
+  margin: 0 0 52px;
+
+  color: #a5b0c0;
+  font-size: 14px;
+}
+
+.add-mentor-field {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.add-mentor-field label {
+  position: absolute;
+  top: -9px;
+  left: 14px;
+
+  padding: 0 8px;
+
+  background: #ffffff;
+  color: #696cff;
+  font-size: 13px;
+}
+
+.add-mentor-field input {
+  width: 100%;
+  height: 54px;
+
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  border: 2px solid #696cff;
+  border-radius: 8px;
+
+  outline: none;
+  background: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+  color: #53657f;
+}
+
+.add-mentor-field input[readonly] {
+  background: #fafaff;
+}
+
+.add-mentor-name-fields {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.add-mentor-error {
+  margin: 14px 0 0;
+  color: #d64545;
+  font-size: 12px;
+}
+
+.add-mentor-submit {
+  width: 100%;
+  height: 54px;
+  margin-top: 36px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #696cff;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-mentor-submit:hover {
+  background: #575ae8;
+}
+
+@media (max-width: 600px) {
+  .add-mentor-modal {
+    padding: 60px 24px 32px;
+    border-radius: 24px;
+  }
+
+  .add-mentor-modal h2 {
+    font-size: 22px;
+  }
+
+  .add-mentor-name-fields {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

@@ -1,0 +1,69 @@
+.view-mentor {
+  width: 100%;
+  padding: 10px 32px 40px;
+  box-sizing: border-box;
+}
+.view-mentor-top {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+
+.view-mentor-profile h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #3d4d66;
+}
+
+.view-mentor-profile p {
+  margin: 0;
+  font-size: 13px;
+  color: #8994a7;
+}
+
+.view-mentor-about h2 {
+  margin: 0 0 16px;
+  font-size: 16px;
+  color: #696cff;
+}
+
+.view-mentor-about p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #667085;
+}
+
+.view-mentor-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.view-mentor-jobs,
+.view-mentor-offers {
+  min-width: 0;
+}
+
+.view-mentor-jobs h2,
+.view-mentor-offers h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3d4d66;
+}
+
+@media (max-width: 900px) {
+  .view-mentor-top,
+  .view-mentor-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .view-mentor {
+    padding: 16px;
+  }
+}

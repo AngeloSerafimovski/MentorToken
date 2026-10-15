@@ -1,0 +1,161 @@
+/* MAIN PAGE */
+
+.startup-mentors {
+  width: 100%;
+  padding: 10px 32px 40px;
+  box-sizing: border-box;
+}
+
+/* MY MENTORS BANNER */
+
+.startup-mentors-banner {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  min-height: 175px;
+
+  padding: 24px 32px;
+  margin-bottom: 32px;
+
+  background-color: #ffffff;
+  border-radius: 14px;
+
+  box-sizing: border-box;
+}
+
+.startup-mentors-banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.startup-mentors-banner-content h1 {
+  margin: 0 0 8px;
+
+  font-size: 22px;
+  font-weight: 600;
+  color: #3d4d66;
+}
+
+.startup-mentors-banner-content p {
+  margin: 0 0 22px;
+
+  font-size: 14px;
+  color: #667085;
+}
+
+.add-mentor-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #696cff;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-mentor-button:hover {
+  background-color: #575ae8;
+}
+
+/* ILLUSTRATION */
+
+.startup-mentors-banner-image {
+  position: absolute;
+
+  width: 240px;
+  height: auto;
+
+  left: 60%;
+  bottom: -5px;
+
+  transform: translateX(-50%);
+
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* MENTORS + OVERVIEW */
+
+.startup-mentors-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.5fr) minmax(220px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.startup-mentors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.startup-mentors-overview {
+  min-width: 0;
+}
+
+
+.startup-mentors-empty {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.startup-mentors-empty h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #3d4d66;
+}
+
+.startup-mentors-empty p {
+  margin: 0;
+  font-size: 13px;
+  color: #8994a7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .startup-mentors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .startup-mentors-banner-image {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .startup-mentors {
+    padding: 16px;
+  }
+
+  .startup-mentors-banner {
+    padding: 24px;
+  }
+
+  .startup-mentors-banner-content h1 {
+    font-size: 20px;
+  }
+
+  .startup-mentors-banner-image {
+    display: none;
+  }
+}

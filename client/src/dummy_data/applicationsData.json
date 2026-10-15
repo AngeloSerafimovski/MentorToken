@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "application1",
+    "jobId": "job1",
+    "mentorId": "mentor1",
+    "companyId": "startup1",
+    "applicationType": "companyToMentor",
+    "status": "accepted",
+    "acceptedStatus": "done"
+  },
+  {
+    "_id": "application2",
+    "jobId": "job2",
+    "mentorId": "mentor2",
+    "companyId": "startup1",
+    "applicationType": "companyToMentor",
+    "status": "accepted",
+    "acceptedStatus": "rejected"
+  },
+  {
+    "_id": "application3",
+    "jobId": "job3",
+    "mentorId": "mentor2",
+    "companyId": "startup1",
+    "applicationType": "companyToMentor",
+    "status": "accepted",
+    "acceptedStatus": "in progress"
+  },
+  {
+    "_id": "application4",
+    "jobId": "job4",
+    "mentorId": "mentor3",
+    "companyId": "startup1",
+    "applicationType": "companyToMentor",
+    "status": "accepted",
+    "acceptedStatus": "done"
+  },
+  {
+    "_id": "application5",
+    "jobId": "job5",
+    "mentorId": "mentor1",
+    "companyId": "startup1",
+    "applicationType": "companyToMentor",
+    "status": "accepted",
+    "acceptedStatus": "in progress"
+  },
+  {
+    "_id": "application6",
+    "jobId": "job6",
+    "mentorId": "mentor3",
+    "companyId": "startup1",
+    "applicationType": "companyToMentor",
+    "status": "accepted",
+    "acceptedStatus": "done"
+  }
+]
